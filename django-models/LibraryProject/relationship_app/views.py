@@ -25,15 +25,15 @@ class UserLoginView(LoginView):
     template_name = 'relationship_app/login.html'
 
 class UserLogoutView(LogoutView):
-    template_name = 'relationship_app/logout.html' 
+    template_name = 'relationship_app/logout.html'  
 
-def register(request):
+def register(request):  # must be named exactly 'register'
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect('books')  # Redirect to login page after registration
+            login(request, user)  # log user in immediately
+            return redirect('/relationship/')
     else:
         form = UserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
