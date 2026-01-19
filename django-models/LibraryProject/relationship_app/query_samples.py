@@ -41,11 +41,10 @@ def list_books_in_library(library_name):
 
 
 def get_librarian_for_library(library_name):
-    """
-    Retrieve the librarian for a library
-    """
+    # Retrieve the librarian for a library
     library = Library.objects.get(name=library_name)
-    return library.librarian
+    librarian = Librarian.objects.get(library=library)
+    return librarian
 
 
 # --------------------------------------------------
