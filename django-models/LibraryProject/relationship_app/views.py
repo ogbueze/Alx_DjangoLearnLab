@@ -8,16 +8,11 @@ from .models import Book, Library
 def index(request):
     return HttpResponse('this is my relationship app')
 
-def books(request):
+def list_books(request):
     books = Book.objects.all()
-
-    output = []
-    for book in books:
-        output.append(f"{book.title} by {book.author.name}")
-
-    return HttpResponse("\n".join(output))
+    return render(request, 'list_books.html', {'books': books})
 
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'relationship_app/library_detail.html'
+    template_name = 'library_detail.html'
     context_object_name = 'library'
