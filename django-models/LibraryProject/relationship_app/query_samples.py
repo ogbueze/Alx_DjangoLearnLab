@@ -6,7 +6,7 @@ import django
 # --------------------------------------------------
 os.environ.setdefault(
     'DJANGO_SETTINGS_MODULE',
-    'library_project.settings'
+    'LibraryProject.settings'
 )
 django.setup()
 
