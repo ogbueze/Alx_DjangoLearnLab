@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.detail import DetailView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
 from .models import Book
 from django.contrib.auth import login 
@@ -20,12 +19,7 @@ class LibraryDetailView(DetailView):
     model = Library
     template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
-
-class UserLoginView(LoginView):
-    template_name = 'relationship_app/login.html'
-
-class UserLogoutView(LogoutView):
-    template_name = 'relationship_app/logout.html'  
+ 
 
 def register(request):  # must be named exactly 'register'
     if request.method == 'POST':
